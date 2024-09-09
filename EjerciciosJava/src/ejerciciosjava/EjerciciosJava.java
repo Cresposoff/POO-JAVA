@@ -6,7 +6,7 @@ package ejerciciosjava;
 
 /**
  *
- * @author LENOVO
+ * @author u20241221018 Jhoan Montealegre
  */
 public class EjerciciosJava {
 
@@ -16,5 +16,5 @@ public class EjerciciosJava {
     public static void main(String[] args) {
         // TODO code application logic here
     }
-    
+
 }
