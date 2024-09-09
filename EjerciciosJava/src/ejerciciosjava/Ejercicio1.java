@@ -18,7 +18,7 @@ public class Ejercicio1 {
         double preciot;
         double descuento;
         Scanner sc = new Scanner (System.in);
-        System.out.println("Ingrese la cantidad de computadoras: ");
+        System.out.print("Ingrese la cantidad de computadoras: ");
         cantpc = sc.nextInt();
         if (0 > cantpc){
             System.out.println("Error, no se procesan cantidades negativas");
