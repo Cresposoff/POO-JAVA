@@ -49,7 +49,7 @@ public class Ejercicio2 {
                         + " y el total de su compra es de: $" + precioT);
                 condition = false;
                 // Si no se cumplió nada de lo anterior es porque si o si la cantidad de llantas
-                // es mayor que diez (cantPc > 10).
+                // es mayor que diez (cantLlan > 10).
             } else {
                 precioT = vector1[2] * cantLlan;
                 System.out.println("El precio de cada llanta le salió por U$" + vector1[2]
