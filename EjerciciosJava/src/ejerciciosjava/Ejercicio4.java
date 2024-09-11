@@ -9,6 +9,7 @@ public class Ejercicio4 {
         double descuento;
         double precioFinal;
         double vector1[] = {0, 10, 15, 20};
+        @SuppressWarnings("resource")
         Scanner sc = new Scanner(System.in);
         System.out.println("¡EN LA FRUTERÍA HAY DESCUENTO DE MANZANAS SEGUN LOS KILOS!");
         System.out.print("Ingrese el precio del Kilo de manzanas: U$");

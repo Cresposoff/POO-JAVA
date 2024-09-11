@@ -13,6 +13,7 @@ public class Ejercicio3 {
         int marca = 0;
         double precioFinal;
         boolean condition = true;
+        @SuppressWarnings("resource")
         Scanner sc = new Scanner(System.in);
 
         // Para que el usuario inquieto porte seriedad con el programa (es ilógico ingresar precio GRATIS ó NEGATIVO).
