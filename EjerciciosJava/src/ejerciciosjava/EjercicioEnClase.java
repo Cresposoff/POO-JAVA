@@ -3,6 +3,7 @@ package ejerciciosjava;
 import java.util.Scanner;
 
 public class EjercicioEnClase {
+    @SuppressWarnings("unused")
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         double[][] datosCamion = new double[3][6];
