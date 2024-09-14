@@ -6,8 +6,8 @@ public class Ejercicio5 {
         double capital;
         double saldo;
         double saldoNuevo;
-        double prestamo;
-        Scanner sc = new Scanner(System.in)
+        double prestamo = 0;
+        Scanner sc = new Scanner(System.in);
         System.out.println("Ingrese el valor del saldo: U$");
         saldo = sc.nextDouble();
         if (saldo < 0) {
