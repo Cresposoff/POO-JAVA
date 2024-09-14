@@ -9,6 +9,7 @@ import java.util.Scanner;
 public class Ejercicio3 {
     public static void main(String[] args) {
         int precioAparato = 0;
+        double precioAparatoConIva;
         double descuentoAparato;
         int marca = 0;
         double precioFinal;
@@ -39,7 +40,7 @@ public class Ejercicio3 {
             System.out.println("0. No");
             marca = sc.nextInt();
 
-        // Agregamos esta desición con el fin de que el usuario tenga una mejor experiencia (en vez de escribir "Sí es marca NOSY" ó "Sí/No") solamente con la pregunta ya planteada selecciona un número respectivamente.
+        // 517,75 Agregamos esta desición con el fin de que el usuario tenga una mejor experiencia (en vez de escribir "Sí es marca NOSY" ó "Sí/No") solamente con la pregunta ya planteada selecciona un número respectivamente.
             if (marca == 1 || marca == 0) {
                 System.out.println("¡Exelente!");
                 condition = false;
@@ -50,28 +51,25 @@ public class Ejercicio3 {
             }
         }
 
+        precioAparatoConIva = (precioAparato * 0.19) + precioAparato;
         if (precioAparato >= 500 && precioAparato > 0 && marca == 1){
-            //Al ver las diferencias entre los porcentajes, se operó "19$ - 10$ - 5$ = 4$" dando así "+4%" que debido a su signo, se sumaran al precioAparato para dar un precioFinal.
-            descuentoAparato = precioAparato * (0.19 - 0.1 - 0.05);
-            precioFinal = precioAparato + descuentoAparato;
+            descuentoAparato = ((precioAparatoConIva - (precioAparato * 0.1)) * 0.05);
+            precioFinal = (precioAparatoConIva - (precioAparato * 0.1)) - descuentoAparato;
             System.out.println("Como el aparato cuesta igual o más a U$500 y es marca NOSY. El precio final es de: U$"+precioFinal);
             
         } else if (precioAparato >= 500 && precioAparato > 0 && marca == 0){
-            //Al ver las diferencias entre los porcentajes, se operó "19$ - 10$ = 9$" dando así "+9%" que debido a su signo, se sumaran al precioAparato para dar un precioFinal.
-            descuentoAparato = precioAparato * (0.19 - 0.1);
-            precioFinal = precioAparato + descuentoAparato;
+            descuentoAparato = (precioAparatoConIva - (precioAparato * 0.1));
+            precioFinal = descuentoAparato;
             System.out.println("Como el aparato cuesta igual o más a U$500 y NO es marca NOSY. El precio final es de: U$"+precioFinal);
 
         } else if (precioAparato <= 500 && precioAparato > 0 && marca == 1){
-            //Al ver las diferencias entre los porcentajes, se operó "19$ - 5$ = 14$" dando así "+14%" que debido a su signo, se sumaran al precioAparato para dar un precioFinal.
-            descuentoAparato = precioAparato * (0.19 - 0.05);
-            precioFinal = precioAparato + descuentoAparato;
+            descuentoAparato = (precioAparatoConIva * 0.05);
+            precioFinal = precioAparatoConIva - descuentoAparato;
             System.out.println("Como el aparato cuesta menos de U$500 y es marca NOSY. El precio final es de: U$"+precioFinal);
 
         } else if (precioAparato <= 500 && precioAparato > 0 && marca == 0){
-            //Al ver las diferencias entre los porcentajes, se operó "19$ - 0$ = 19$" dando así "+19%" que debido a su signo, se sumaran al precioAparato para dar un precioFinal.
-            descuentoAparato = precioAparato * (0.19 - 0);
-            precioFinal = precioAparato + descuentoAparato;
+            descuentoAparato = precioAparatoConIva;
+            precioFinal = descuentoAparato;
             System.out.println("Como el aparato cuesta menos de U$500 y NO es marca NOSY. El precio final es de: U$"+precioFinal);
 
         }
