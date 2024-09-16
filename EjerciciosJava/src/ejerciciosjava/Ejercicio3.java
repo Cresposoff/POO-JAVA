@@ -73,6 +73,7 @@ public class Ejercicio3 {
         }
     }
 }
+
 /**Pendiente:
  * Mirar si se puede mejorar las desiciones.
  * Agregar el vector (Array, donde guarde los porcentajes -> (19%), (10%), (5%)).
