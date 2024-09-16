@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class EjercicioEnClase {
     @SuppressWarnings("unused")
     public static void main(String[] args) {
+        @SuppressWarnings("resource")
         Scanner sc = new Scanner(System.in);
         double[][] datosCamion = new double[3][6];
         double tipoProducto=0, tipoServicio=0, valorPark = 0, tiempo=0, peso=0, largo=0;
