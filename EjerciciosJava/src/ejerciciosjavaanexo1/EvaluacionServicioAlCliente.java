@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 public class EvaluacionServicioAlCliente {
     public static void main(String[] args) {
+        @SuppressWarnings("resource")
         Scanner sc = new Scanner(System.in);
         Random random = new Random();
 
@@ -70,6 +71,7 @@ public class EvaluacionServicioAlCliente {
         }
 
         // Calcular estadísticas
+        @SuppressWarnings("unused")
         int solucionados = 0, totalServicio = 0, precioJustoTotal = 0, totalAmabilidad = 0, totalAmbiente = 0;
 
         for (int i = 0; i < numClientes; i++) {

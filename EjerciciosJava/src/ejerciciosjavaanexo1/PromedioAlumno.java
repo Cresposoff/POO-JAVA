@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class PromedioAlumno {
     public static void main(String[] args) {
         double tabla [][] = new double[4][4];
+        @SuppressWarnings("resource")
         Scanner sc = new Scanner(System.in);
         double suma = 0.0;
         //Recargamos la matriz

@@ -4,6 +4,7 @@ import java.util.Scanner;
 public class EjercicioAereopuerto {
     public static void main(String[] args) {
         int matriz [][] = new int[6][3];
+        @SuppressWarnings("resource")
         Scanner sc = new Scanner(System.in);
         //Recargar matriz con cantidad de asientos
         for (int f = 0; f < matriz.length; f++) {
@@ -15,6 +16,7 @@ public class EjercicioAereopuerto {
         }
         
         //venta
+        @SuppressWarnings("resource")
         Scanner sc2 = new Scanner(System.in);
         System.out.println("Cuántos vuelos desea comprar?: ");
         String bandera = "";

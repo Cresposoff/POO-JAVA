@@ -13,6 +13,7 @@ public class MayorMenor {
         int menor;
         int mayor;
         int num;
+        @SuppressWarnings("resource")
         Scanner sc = new Scanner(System.in);
 
         // Pedimos el número y ese lo ponemos como mayor y como menor para posterior
