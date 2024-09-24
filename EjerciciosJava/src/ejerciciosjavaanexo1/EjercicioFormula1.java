@@ -6,6 +6,7 @@ public class EjercicioFormula1 {
     public static void main(String[] args) {
         
         double tiempos [][] = new double[5][5];
+        @SuppressWarnings("resource")
         Scanner sc = new Scanner(System.in);
         // Recargar la matriz con los tiempos de cada piloto
         for (int f = 0; f < tiempos.length; f++) {
