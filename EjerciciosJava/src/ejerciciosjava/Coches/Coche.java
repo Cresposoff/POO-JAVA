@@ -7,7 +7,18 @@ public class Coche {
     public String matricula;
     public int cilindrada;
 
+    //Constructores
 
+    public Coche(String marca, String color, String matricula, int cilindrada){
+        this.marca = marca;
+        this.color = color;
+        this.matricula = matricula;
+        this.cilindrada = cilindrada;
+    }
+
+    public Coche(){
+        
+    }
 
     //Métodos
     //Visibilida Retorno nombreMetodo(<Argumentos>)

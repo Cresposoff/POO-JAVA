@@ -16,5 +16,8 @@ public class Prueba {
         minCoche.cambiarColor("Red");
         System.out.println("Color Actualizado : "+minCoche.color);
 
+        Coche c2 = new Coche("AUDI","Blanco","xyz",1800);
+        System.out.println("Marca: "+c2.marca);
+
     }
 }
