@@ -82,5 +82,22 @@ public class CocheV2 {
     public void setDniTitular(String dniTitular) {
         this.dniTitular = dniTitular;
     }
+
+    public void anadirKm(int Km){
+        //this.Km=this.Km+Km;
+        if (km > 0) {
+            this.km+=Km;
+        } else
+        System.out.println("Debe ser mayor a cero");
+    }
+
+    @Override
+    public String toString() {
+        return "CocheV2 [marca=" + marca + ", color=" + color + ", km=" + km + ", precio=" + precio
+                + ", factorContaminacion=" + factorContaminacion + ", anio=" + anio + ", matricula=" + matricula
+                + ", impuestoMatriculacion=" + impuestoMatriculacion + ", dniTitular=" + dniTitular + "]";
+    }
+
+    
     
 }
