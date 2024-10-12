@@ -3,6 +3,7 @@ package ejerciciosjavaanexo1.metodos.metodo1;
 import java.util.Scanner;
 
 public class EjercicioMetodo1 {
+    //Cuando las variables están fuera de un método se llaman VARIABLES GLOBALES, y cuando están dentro VARIABLES LOCALES.
     //Atributos
     String nombre;
 
