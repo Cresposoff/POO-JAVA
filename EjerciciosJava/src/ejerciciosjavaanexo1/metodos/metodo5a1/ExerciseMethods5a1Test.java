@@ -8,7 +8,7 @@ public class ExerciseMethods5a1Test {
         Scanner sc = new Scanner(System.in);
         System.out.println("Ingrese el valor del radio del circulo: ");
         int radio = sc.nextInt();
-        System.out.println("Ingrese opción: a. ÁREA DEL CIRCULO c. LONGITUD DE CIRCUNFERENCIA");
+        System.out.println("Ingrese la opción a realizar: a. RADIO b. LONGITUD");
         String opcion = sc.nextLine();
 
         //Creamos el objeto
