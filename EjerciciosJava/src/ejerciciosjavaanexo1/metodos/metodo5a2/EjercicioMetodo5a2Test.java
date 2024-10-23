@@ -11,6 +11,10 @@ public class EjercicioMetodo5a2Test {
         //Llamamos al método
         //Falta hacer que sirvan para algo las variables de retorno porque todo lo imprimí dentro del método
         //Y Falta devolver el valor de -1 cuando se ingresó un valor no válido
-        calcularConIva.calcularPrecio(_preciobase, _porceniva);
+        if (_preciobase > 0 && _porceniva > 0) {
+            System.out.println("El precio con IVA es de: "+calcularConIva.calcularPrecio(_preciobase, _porceniva));
+        } else {
+            System.out.println("No se ingresó un valor válido: "+(int) calcularConIva.calcularPrecio(_preciobase, _porceniva));
+        }
     }
 }
