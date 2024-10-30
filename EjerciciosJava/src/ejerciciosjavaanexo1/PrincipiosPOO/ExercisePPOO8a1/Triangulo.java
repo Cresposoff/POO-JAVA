@@ -1,50 +1,24 @@
 package ejerciciosjavaanexo1.PrincipiosPOO.ExercisePPOO8a1;
 
-public class Triangulo extends Forma{
-    //Atributos
+public class Triangulo extends Forma implements IFormas {
     private double base;
     private double altura;
 
-    //Constructor
     public Triangulo(String nombre, double posicionX, double posicionY, String color, double base, double altura) {
         super(nombre, posicionX, posicionY, color);
         this.base = base;
         this.altura = altura;
     }
-    
-    public Triangulo() {
-        
-    }
 
-    public double getBase() {
-        return base;
-    }
-
-    public void setBase(double base) {
-        this.base = base;
-    }
-
-    public double getAltura() {
-        return altura;
-    }
-
-    public void setAltura(double altura) {
-        this.altura = altura;
-    }
-
-    //Métodos
-    //Método para calcular el área del Triángulo
-    public double calcularArea(){
-        System.out.println("Método desarrollado en Triangulo para área");
+    @Override
+    public double calcularArea() {
         return (base * altura) / 2;
     }
 
     @Override
-    public String toString() {
-        return "Triangulo [base=" + base + ", altura=" + altura + ", getBase()=" + getBase() + ", getAltura()="
-                + getAltura() + ", getNombre()=" + getNombre() + ", getPosicionX()=" + getPosicionX()
-                + ", getPosicionY()=" + getPosicionY() + ", getColor()=" + getColor() + "]";
+    public double calcularPerimetro() {
+        // Asumimos que el triángulo es isósceles para el cálculo del perímetro
+        double lado = Math.sqrt((base / 2) * (base / 2) + altura * altura);
+        return 2 * lado + base;
     }
-
-
 }

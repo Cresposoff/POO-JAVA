@@ -1,27 +1,22 @@
 package ejerciciosjavaanexo1.PrincipiosPOO.ExercisePPOO8a1;
 
-public class Rectangulo extends Forma{
-    //Atributos
-    private double ancho;
-    private double alto;
+public class Rectangulo extends Forma implements IFormas {
+    private double base;
+    private double altura;
 
-    //Constructor
-    public Rectangulo(String nombre, double posicionX, double posicionY, String color, double ancho, double alto) {
+    public Rectangulo(String nombre, double posicionX, double posicionY, String color, double base, double altura) {
         super(nombre, posicionX, posicionY, color);
-        this.ancho = ancho;
-        this.alto = alto;
+        this.base = base;
+        this.altura = altura;
     }
 
-    //Métodos
-    //Método para calcular el área del Rectangulo
-    public double calcularArea(){
-        System.out.println("Método desarrollado en Rectangulo para área");
-        return ancho * alto;
+    @Override
+    public double calcularArea() {
+        return base * altura;
     }
 
-    //Método para calcular el perímetro del Rectangulo
-    public double calcularPerimetro(){
-        System.out.println("Método desarrollado en Rectangulo para perímetro");
-        return (ancho + alto) * 2;
+    @Override
+    public double calcularPerimetro() {
+        return 2 * (base + altura);
     }
 }
