@@ -5,8 +5,8 @@ public class Garage implements IGarage {
 •   void agregarVehiculo(Vehículo v); Agrega un vehículo a la colección de espacios de vehículos.
 •   int calcularOcupacionPorTipoVehiculo(Vehículo v); Indica cuantos vehículos hay del tipo pasado por parámetro en el garaje. */
 //Atributos
-    final int espaGarage = 10;
-    private Vehiculo[] espaciosGarage = new Vehiculo[espaGarage];
+    final int EPA_GARAGE = 10;
+    private Vehiculo[] espaciosGarage = new Vehiculo[EPA_GARAGE];
 
 
     @Override
