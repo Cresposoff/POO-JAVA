@@ -11,9 +11,9 @@ public class Test {
         String marca;
         String modelo;
         double precio;
-        int n; // número de vehículos
+        int n, indiceBarato; // número de vehículos
 
-        System.out.println("Ingrese el número de vehículos: ");
+        System.out.print("Ingrese el número de vehículos: ");
         n = sc.nextInt();
         sc.nextLine(); // Consumir el salto de línea
 
@@ -22,19 +22,22 @@ public class Test {
 
         for (int i = 0; i < v.length; i++) {
             System.out.println("\nIngrese características del vehículo " + (i + 1) + ": ");
-            System.out.println("Ingrese la marca: ");
+            System.out.print("MARCA: ");
             marca = sc.nextLine();
-            sc.nextLine(); // Consumir el salto de línea
-            System.out.println("Ingrese el modelo: ");
+            System.out.print("MODELO: ");
             modelo = sc.nextLine();
-            sc.nextLine(); // Consumir el salto de línea
-            System.out.println("Ingrese el precio: ");
+            System.out.print("PRECIO: $");
             precio = sc.nextDouble();
             sc.nextLine(); // Consumir el salto de línea
-            v[i] = new Vehiculo(marca, modelo, precio);
 
+            v[i] = new Vehiculo(marca, modelo, precio);
         }
-        sc.nextLine(); // Consumir el salto de línea
+
+        // Imprimir el indice del array de vehiculos de objetos v, al decidir qué
+        // vehículo es más barato
+        indiceBarato = v[0].indiceVehiculoBarato(v);
+        System.out.println("\nEl vehículo más barato es el: "+ (indiceBarato + 1));
+        System.out.println(v[indiceBarato].mostrarDatos());
     }
 
 }
