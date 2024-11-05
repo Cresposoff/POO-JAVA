@@ -1,5 +1,10 @@
 package ejerciciosjavaanexo1.PrincipiosPOO.ExercisePPOO8a13;
 
+/**
+ * 
+ * @author Cresposoff
+ */
+
 public class Pescado extends Producto {
     private String tipoPescado;
 

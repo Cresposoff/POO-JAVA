@@ -1,5 +1,10 @@
 package ejerciciosjavaanexo1.PrincipiosPOO.ExercisePPOO8a7;
 
+/**
+ * 
+ * @author Cresposoff
+ */
+
 import java.util.Scanner;
 
 public class Test {

@@ -1,5 +1,10 @@
 package ejerciciosjavaanexo1.PrincipiosPOO.ExercisePPOO8a5;
 
+/**
+ * 
+ * @author Cresposoff
+ */
+
 public abstract class Vehiculo {
     private double precioCompra;
     private String marca;

@@ -1,5 +1,10 @@
 package ejerciciosjavaanexo1.PrincipiosPOO.ExercisePPOO8a3;
 
+/**
+ * 
+ * @author Cresposoff
+ */
+
 public abstract class Cuenta {
     private long numeroCuenta;
     private double saldo;

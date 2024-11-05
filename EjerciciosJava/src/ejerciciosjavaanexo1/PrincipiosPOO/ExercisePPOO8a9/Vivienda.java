@@ -1,5 +1,10 @@
 package ejerciciosjavaanexo1.PrincipiosPOO.ExercisePPOO8a9;
 
+/**
+ * 
+ * @author Cresposoff
+ */
+
 public abstract class Vivienda implements IViviendas, java.io.Serializable {
     protected String calle;
     protected int superficieEnMetros;

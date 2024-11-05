@@ -1,5 +1,10 @@
 package ejerciciosjavaanexo1.PrincipiosPOO.ExercisePPOO8a6;
 
+/**
+ * 
+ * @author Cresposoff
+ */
+
 import java.util.Date;
 
 public class ProductoCongelado extends ProductoFresco {

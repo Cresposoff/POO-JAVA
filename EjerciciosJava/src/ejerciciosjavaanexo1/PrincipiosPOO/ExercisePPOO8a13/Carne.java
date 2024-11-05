@@ -1,5 +1,10 @@
 package ejerciciosjavaanexo1.PrincipiosPOO.ExercisePPOO8a13;
 
+/**
+ * 
+ * @author Cresposoff
+ */
+
 public abstract class Carne extends Producto {
     protected String origen; // "vacuno" o "avícola"
 

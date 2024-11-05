@@ -1,5 +1,10 @@
 package ejerciciosjavaanexo1.PrincipiosPOO.ExercisePPOO8a8;
 
+/**
+ * 
+ * @author Cresposoff
+ */
+
 public class Math2 implements IExtremos {
 
     @Override

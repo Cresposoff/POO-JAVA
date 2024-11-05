@@ -1,5 +1,10 @@
 package ejerciciosjavaanexo1.PrincipiosPOO.ExercisePPOOGaraje;
 
+/**
+ * 
+ * @author Cresposoff
+ */
+
 public class Auto extends Vehiculo {
     /*
      * Crear clase Auto que hereda de Vehiculo. Esta clase tiene además los

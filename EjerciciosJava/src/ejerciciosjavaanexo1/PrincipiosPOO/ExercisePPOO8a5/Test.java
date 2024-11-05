@@ -1,5 +1,10 @@
 package ejerciciosjavaanexo1.PrincipiosPOO.ExercisePPOO8a5;
 
+/**
+ * 
+ * @author Cresposoff
+ */
+
 public class Test {
     public static void main(String[] args) {
         // Crear un array de 3 camiones

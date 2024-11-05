@@ -1,5 +1,10 @@
 package ejerciciosjavaanexo1.PrincipiosPOO.ExercisePPOO8a4;
 
+/**
+ * 
+ * @author Cresposoff
+ */
+
 public class Coche {
     private final String marca;
     private String color;

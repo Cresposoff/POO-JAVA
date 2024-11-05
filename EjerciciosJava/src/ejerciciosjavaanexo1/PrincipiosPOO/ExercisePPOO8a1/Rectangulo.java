@@ -1,5 +1,10 @@
 package ejerciciosjavaanexo1.PrincipiosPOO.ExercisePPOO8a1;
 
+/**
+ * 
+ * @author Cresposoff
+ */
+
 public class Rectangulo extends Forma implements IFormas {
     private double base;
     private double altura;

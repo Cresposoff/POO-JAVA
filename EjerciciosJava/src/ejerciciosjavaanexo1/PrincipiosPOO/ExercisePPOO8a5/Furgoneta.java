@@ -1,5 +1,10 @@
 package ejerciciosjavaanexo1.PrincipiosPOO.ExercisePPOO8a5;
 
+/**
+ * 
+ * @author Cresposoff
+ */
+
 public class Furgoneta extends Vehiculo {
     private double capacidadCarga; // en metros cúbicos
 

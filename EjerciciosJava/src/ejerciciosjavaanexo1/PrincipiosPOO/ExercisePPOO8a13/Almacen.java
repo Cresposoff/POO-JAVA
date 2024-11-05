@@ -1,9 +1,13 @@
 package ejerciciosjavaanexo1.PrincipiosPOO.ExercisePPOO8a13;
 
+/**
+ * 
+ * @author Cresposoff
+ */
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Scanner;
 
 public class Almacen {
     private List<Producto> productos;

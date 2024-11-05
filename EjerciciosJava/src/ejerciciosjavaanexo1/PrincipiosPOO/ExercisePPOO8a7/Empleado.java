@@ -1,5 +1,10 @@
 package ejerciciosjavaanexo1.PrincipiosPOO.ExercisePPOO8a7;
 
+/**
+ * 
+ * @author Cresposoff
+ */
+
 public class Empleado {
     private String nombre;
     private String telefono;

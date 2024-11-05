@@ -1,5 +1,10 @@
 package ejerciciosjavaanexo1.PrincipiosPOO.ExercisePPOO8a9;
 
+/**
+ * 
+ * @author Cresposoff
+ */
+
 public class Piso extends Vivienda {
     private int planta;
     private int puerta;

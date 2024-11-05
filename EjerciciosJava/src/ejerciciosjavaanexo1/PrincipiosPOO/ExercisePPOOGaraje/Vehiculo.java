@@ -1,5 +1,10 @@
 package ejerciciosjavaanexo1.PrincipiosPOO.ExercisePPOOGaraje;
 
+/**
+ * 
+ * @author Cresposoff
+ */
+
 public class Vehiculo {
     private String placa = null;
     private String marca;

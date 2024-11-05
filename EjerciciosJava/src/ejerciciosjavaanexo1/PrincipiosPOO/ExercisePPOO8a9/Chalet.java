@@ -1,5 +1,10 @@
 package ejerciciosjavaanexo1.PrincipiosPOO.ExercisePPOO8a9;
 
+/**
+ * 
+ * @author Cresposoff
+ */
+
 public class Chalet extends Vivienda {
     private int numParcela;
     private boolean conPiscina;

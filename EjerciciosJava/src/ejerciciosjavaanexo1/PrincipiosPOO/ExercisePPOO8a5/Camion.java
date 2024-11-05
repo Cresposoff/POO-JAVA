@@ -1,5 +1,10 @@
 package ejerciciosjavaanexo1.PrincipiosPOO.ExercisePPOO8a5;
 
+/**
+ * 
+ * @author Cresposoff
+ */
+
 public class Camion extends Vehiculo {
     private double tamanoRemolque; // en metros
     private int ejes;

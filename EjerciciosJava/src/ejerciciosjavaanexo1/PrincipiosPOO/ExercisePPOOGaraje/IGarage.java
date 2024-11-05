@@ -1,5 +1,10 @@
 package ejerciciosjavaanexo1.PrincipiosPOO.ExercisePPOOGaraje;
 
+/**
+ * 
+ * @author Cresposoff
+ */
+
 public interface IGarage {
     //Debe calcular la suma de ingresos mensuales de todos los vehículos existentes en el garaje
     double calcularIngresos();

@@ -1,5 +1,10 @@
 package ejerciciosjavaanexo1.PrincipiosPOO.ExercisePPOO8a2;
 
+/**
+ * 
+ * @author Cresposoff
+ */
+
 public class Programador extends Empleado {
     private int lineasDeCodigoPorHora;
     private String lenguajeDominante;

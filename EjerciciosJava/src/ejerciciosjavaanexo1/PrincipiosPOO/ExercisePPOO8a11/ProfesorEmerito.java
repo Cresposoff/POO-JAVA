@@ -1,5 +1,10 @@
 package ejerciciosjavaanexo1.PrincipiosPOO.ExercisePPOO8a11;
 
+/**
+ * 
+ * @author Cresposoff
+ */
+
 public class ProfesorEmerito extends Profesor {
     private int añosEmerito;
 

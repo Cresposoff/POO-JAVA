@@ -1,5 +1,10 @@
 package ejerciciosjavaanexo1.PrincipiosPOO.ExercisePPOOGaraje;
 
+/**
+ * 
+ * @author Cresposoff
+ */
+
 public class Moto extends Vehiculo {
     /*Crear clase Moto que hereda de Vehiculo. Esta clase tiene además las siguientes características atributo:
 • Un atributo; boolean tieneSidecar que se asigna en el constructor

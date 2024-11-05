@@ -1,5 +1,10 @@
 package ejerciciosjavaanexo1.PrincipiosPOO.ExercisePPOO8a3;
 
+/**
+ * 
+ * @author Cresposoff
+ */
+
 public class CuentaAhorro extends Cuenta {
     private double saldoMinimo;
 

@@ -1,5 +1,10 @@
 package ejerciciosjavaanexo1.PrincipiosPOO.ExercisePPOO8a1;
 
+/**
+ * 
+ * @author Cresposoff
+ */
+
 public abstract class Forma {
     private String nombre;
     private double posicionX;

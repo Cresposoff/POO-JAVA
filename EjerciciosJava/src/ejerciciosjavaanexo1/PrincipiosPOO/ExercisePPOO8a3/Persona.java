@@ -1,5 +1,10 @@
 package ejerciciosjavaanexo1.PrincipiosPOO.ExercisePPOO8a3;
 
+/**
+ * 
+ * @author Cresposoff
+ */
+
 public class Persona {
     private String nombre;
     private String nif;

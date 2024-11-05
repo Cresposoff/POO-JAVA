@@ -1,5 +1,10 @@
 package ejerciciosjavaanexo1.PrincipiosPOO.ExercisePPOO8a8;
 
+/**
+ * 
+ * @author Cresposoff
+ */
+
 public class Inicio {
     public static void main(String[] args) {
         Math2 math2 = new Math2();

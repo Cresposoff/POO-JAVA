@@ -1,5 +1,10 @@
 package ejerciciosjavaanexo1.PrincipiosPOO.ExercisePPOO8a13;
 
+/**
+ * 
+ * @author Cresposoff
+ */
+
 public abstract class Producto implements IProducto {
     protected String nombre;
     protected double peso;
