@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Test {
     public static void main(String[] args) {
+        @SuppressWarnings("resource")
         Scanner sc = new Scanner(System.in);
 
         //Atributos

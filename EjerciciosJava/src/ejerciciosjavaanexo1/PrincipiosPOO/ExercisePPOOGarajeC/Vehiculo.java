@@ -1,18 +1,14 @@
-package ejerciciosjavaanexo1.PrincipiosPOO.ExercisePPOOGaraje;
-
-/**
- * 
- * @author Cresposoff
- */
+package ejerciciosjavaanexo1.PrincipiosPOO.ExercisePPOOGarajeC;
 
 public class Vehiculo {
     private String placa = null;
     private String marca;
-    protected double precio;
-    protected int cilindraje;
-    protected double impuestoCirculacion;
-    public static double cuotaMesGarage = 100;
-    
+    private double precio;
+    private int cilindraje;
+    private double impuestoCirculacion;
+    private static double cuotaMesGarage = 100;
+
+    // Constructor
     public Vehiculo(String marca, double precio, int cilindraje) {
         this.marca = marca;
         this.precio = precio;
@@ -59,17 +55,17 @@ public class Vehiculo {
         this.impuestoCirculacion = impuestoCirculacion;
     }
 
-    public double getCuotaMesGarage() {
+    public static double getCuotaMesGarage() {
         return cuotaMesGarage;
     }
 
-    // Setter de cuotaMesGarage, con verificación para evitar valores negativos
-    public void setCuotaMesGarage(double cuotaMesGarage) {
-        // No se permiten cuotas negativas
+    public static void setCuotaMesGarage(double cuotaMesGarage) {
+        // No se puede indicar una cuota negativa
         if (cuotaMesGarage < 0) {
             System.out.println("Cuota negativa no permitida");
             Vehiculo.cuotaMesGarage = 0;
-        } else {
+        }
+        else {
             Vehiculo.cuotaMesGarage = cuotaMesGarage;
         }
     }
@@ -79,14 +75,12 @@ public class Vehiculo {
         impuestoCirculacion = precio * 0.02;
     }
 
-    public boolean matricular() {
-        //Siempre que la placa tenga 6 caracteres, se considera que es una matriculada
+    public boolean matricular(String placa) {
+        // Si la placa tiene 6 caracteres, se considera que es una matriculada
         if (placa.length() == 6) {
             return true;
         } else {
             return false;
         }
     }
-
-    
 }
