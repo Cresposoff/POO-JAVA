@@ -18,11 +18,13 @@ public class Test {
             System.out.println("1. Alquilar un espacio");
             System.out.println("2. Retirar vehículo");
             System.out.println("3. Consulta de ingresos mensuales");
-            System.out.println("4. Consulta proporción autos / motos");
+            System.out.println("4. Consulta proporción autos / motos / camiones");
             System.out.println("5. Listado de matrículas, cuota mensual y tipo de vehículo");
+            System.out.println("6. Buscar vehículo por matrícula");
+            System.out.println("7. Determinar cantidad de plazas disponibles");
             System.out.println("0. Salir");
 
-            System.out.print("Elige una opción: ");
+            System.out.print("\nElige una opción: ");
             opcion = scanner.nextInt();
             scanner.nextLine(); // Limpiar el buffer
 
@@ -34,19 +36,25 @@ public class Test {
                     retirarVehiculo(garaje, scanner);
                     break;
                 case 3:
-                    System.out.println("Ingresos mensuales totales del garaje: " + garaje.calcularIngresos());
+                    System.out.println("\nIngresos mensuales totales del garaje: " + garaje.calcularIngresos());
                     break;
                 case 4:
-                    consultarProporcionAutosMotos(garaje);
+                    consultarProporcionVehiculos(garaje);
                     break;
                 case 5:
                     listarVehiculos(garaje);
                     break;
+                case 6:
+                    buscarVehiculo(garaje, scanner);
+                    break;
+                case 7:
+                    System.out.println("\nPlazas disponibles en el garaje: " + garaje.calcularPlazasDisponibles());
+                    break;
                 case 0:
-                    System.out.println("Saliendo del sistema...");
+                    System.out.println("\nSaliendo del sistema...");
                     break;
                 default:
-                    System.out.println("Opción no válida. Intente de nuevo.");
+                    System.out.println("\nOpción no válida. Intente de nuevo.");
             }
         } while (opcion != 0);
 
@@ -54,98 +62,106 @@ public class Test {
     }
 
     private static void alquilarEspacio(Garaje garaje, Scanner scanner) {
-        System.out.println("\n--- Alquilar un Espacio ---");
-        System.out.print("Ingrese tipo de vehículo (1 para Auto, 2 para Moto): ");
+        System.out.println("\nSeleccione el tipo de vehículo a alquilar:");
+        System.out.println("1. Auto");
+        System.out.println("2. Moto");
+        System.out.println("3. Camion");
+        System.out.print("\nOpción: ");
         int tipoVehiculo = scanner.nextInt();
-        scanner.nextLine();
+        scanner.nextLine(); // Limpiar el buffer
 
-        System.out.print("Ingrese marca del vehículo: ");
+        System.out.print("Ingrese la marca del vehículo: ");
         String marca = scanner.nextLine();
-        System.out.print("Ingrese precio del vehículo: ");
+        System.out.print("Ingrese el precio del vehículo: ");
         double precio = scanner.nextDouble();
-        System.out.print("Ingrese cilindraje del vehículo: ");
+        System.out.print("Ingrese el cilindraje del vehículo: ");
         int cilindraje = scanner.nextInt();
-        scanner.nextLine();
 
-        System.out.print("Ingrese matrícula (6 caracteres): ");
+        Vehiculo vehiculo = null;
+
+        switch (tipoVehiculo) {
+            case 1: // Auto
+                System.out.print("¿Tiene radio? (true/false): ");
+                boolean tieneRadio = scanner.nextBoolean();
+                System.out.print("¿Tiene navegador? (true/false): ");
+                boolean tieneNavegador = scanner.nextBoolean();
+                vehiculo = new Auto(marca, precio, cilindraje, tieneRadio, tieneNavegador);
+                break;
+            case 2: // Moto
+                System.out.print("¿Tiene sidecar? (true/false): ");
+                boolean tieneSidecar = scanner.nextBoolean();
+                vehiculo = new Moto(marca, precio, cilindraje, tieneSidecar);
+                break;
+            case 3: // Camion
+                System.out.print("Número de ejes: ");
+                int numeroEjes = scanner.nextInt();
+                scanner.nextLine(); // Limpiar el buffer
+                System.out.print("Tipo de camión (Sencillo/Doble): ");
+                String tipoCamion = scanner.nextLine();
+                System.out.print("Capacidad de carga en toneladas: ");
+                double capacidadCarga = scanner.nextDouble();
+                vehiculo = new Camion(marca, precio, cilindraje, numeroEjes, tipoCamion, capacidadCarga);
+                break;
+            default:
+                System.out.println("\nTipo de vehículo no válido.");
+                return;
+        }
+
+        // Solicitar matrícula y asignarla si cumple la validación
+        scanner.nextLine(); // Limpiar el buffer
+        System.out.print("\nIngrese la matrícula (6 caracteres): ");
         String matricula = scanner.nextLine();
 
-        Vehiculo vehiculo;
-        boolean matriculaValida = matricula.length() == 6;
-
-        if (!matriculaValida) {
-            System.out.println("Error: La matrícula debe tener exactamente 6 caracteres.");
-            return;
-        }
-
-        if (tipoVehiculo == 1) { // Auto
-            System.out.print("¿Tiene radio? (true/false): ");
-            boolean tieneRadio = scanner.nextBoolean();
-            System.out.print("¿Tiene navegador? (true/false): ");
-            boolean tieneNavegador = scanner.nextBoolean();
-            vehiculo = new Auto(marca, precio, cilindraje, tieneRadio, tieneNavegador);
-
-        } else if (tipoVehiculo == 2) { // Moto
-            System.out.print("¿Tiene sidecar? (true/false): ");
-            boolean tieneSidecar = scanner.nextBoolean();
-            vehiculo = new Moto(marca, precio, cilindraje, tieneSidecar);
-
+        if (vehiculo.matricular(matricula)) {
+            if (garaje.alquilarEspacio(vehiculo)) {
+                System.out.println("\nEspacio alquilado con éxito para el vehículo con matrícula: " + matricula);
+            }
         } else {
-            System.out.println("Tipo de vehículo no válido.");
-            return;
-        }
-
-        // Intentar asignar matrícula
-        if (!vehiculo.matricular(matricula)) {
-            System.out.println("Error: La matrícula debe tener exactamente 6 caracteres.");
-            return;
-        }
-
-        // Intentar alquilar espacio
-        if (garaje.alquilarEspacio(vehiculo)) {
-            System.out.println("\nVehículo alquilado exitosamente.");
-        } else {
-            System.out.println("\nNo se pudo alquilar el espacio (garaje lleno o excede límite de motos).");
+            System.out.println("\nMatrícula inválida. Debe tener 6 caracteres.");
         }
     }
 
     private static void retirarVehiculo(Garaje garaje, Scanner scanner) {
-        System.out.println("\n--- Retirar Vehículo ---");
-        System.out.print("Ingrese matrícula del vehículo a retirar: ");
+        System.out.print("\nIngrese la matrícula del vehículo a retirar: ");
         String matricula = scanner.nextLine();
-
         if (garaje.retirarVehiculo(matricula)) {
-            System.out.println("Vehículo con matrícula " + matricula + " retirado exitosamente.");
+            System.out.println("\nVehículo retirado con éxito.");
         } else {
-            System.out.println("No se encontró ningún vehículo con la matrícula " + matricula + ".");
+            System.out.println("\nVehículo no encontrado en el garaje.");
         }
     }
 
-    private static void consultarProporcionAutosMotos(Garaje garaje) {
-        System.out.println("\n--- Consulta Proporción Autos / Motos ---");
+    private static void consultarProporcionVehiculos(Garaje garaje) {
         int cantidadAutos = garaje.calcularOcupacionPorTipoVehiculo(Auto.class);
         int cantidadMotos = garaje.calcularOcupacionPorTipoVehiculo(Moto.class);
+        int cantidadCamiones = garaje.calcularOcupacionPorTipoVehiculo(Camion.class);
 
-        System.out.println("Cantidad de Autos en el garaje: " + cantidadAutos);
-        System.out.println("Cantidad de Motos en el garaje: " + cantidadMotos);
-
-        if (cantidadMotos > 0) {
-            double proporcion = (double) cantidadAutos / cantidadMotos;
-            System.out.println("Proporción Autos / Motos: " + proporcion);
-        } else {
-            System.out.println("No hay motos en el garaje para calcular la proporción.");
-        }
+        // Mostrar en proporción %, sumaremos la cantidad de todos los vehiculos para de ahí el total
+        // de 100%
+        int totalVehiculos = cantidadAutos + cantidadMotos + cantidadCamiones;
+        System.out.println("\nProporción de vehículos en el garaje: ");
+        System.out.println("Autos: " + ((double) cantidadAutos / totalVehiculos) * 100 + "%");
+        System.out.println("Motos: " + ((double) cantidadMotos / totalVehiculos) * 100 + "%");
+        System.out.println("Camiones: " + ((double) cantidadCamiones / totalVehiculos) * 100 + "%");
     }
 
     private static void listarVehiculos(Garaje garaje) {
-        System.out.println("\n--- Listado de Matrículas, Cuota Mensual y Tipo de Vehículo ---");
-        if (garaje.getListaVehiculos().isEmpty()) {
-            System.out.println("El garaje está vacío.");
+        System.out.println("\nListado de vehículos en el garaje:");
+        for (Vehiculo vehiculo : garaje.getListaVehiculos()) {
+            System.out.println("Matrícula: " + vehiculo.getPlaca() +
+                    ", Cuota Mensual: " + vehiculo.getCuotaMesGaraje() +
+                    ", Tipo: " + vehiculo.getClass().getSimpleName());
+        }
+    }
+
+    private static void buscarVehiculo(Garaje garaje, Scanner scanner) {
+        System.out.print("\nIngrese la matrícula del vehículo a buscar: ");
+        String matricula = scanner.nextLine();
+        int indice = garaje.buscarVehiculoPorMatricula(matricula);
+        if (indice != -1) {
+            System.out.println("\nVehículo encontrado en la posición: " + indice);
         } else {
-            garaje.getListaVehiculos().forEach(v -> {
-                System.out.println("Matrícula: " + v.getPlaca() + ", Cuota Mensual: " + v.getCuotaMesGaraje()
-                        + ", Tipo: " + v.getClass().getSimpleName());
-            });
+            System.out.println("\nNo se encontró un vehículo con esa matrícula.");
         }
     }
 }

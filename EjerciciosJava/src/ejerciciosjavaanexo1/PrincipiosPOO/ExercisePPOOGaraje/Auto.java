@@ -5,7 +5,7 @@ package ejerciciosjavaanexo1.PrincipiosPOO.ExercisePPOOGaraje;
  * @author Cresposoff
  */
 
- public class Auto extends Vehiculo {
+public class Auto extends Vehiculo {
     private boolean tieneRadio;
     private boolean tieneNavegador;
 
@@ -18,8 +18,10 @@ package ejerciciosjavaanexo1.PrincipiosPOO.ExercisePPOOGaraje;
 
     private void ajustarImpuestosYCuota() {
         double incrementoImpuesto = 1.0;
-        if (tieneRadio) incrementoImpuesto += 0.01;
-        if (tieneNavegador) incrementoImpuesto += 0.02;
+        if (tieneRadio)
+            incrementoImpuesto += 0.01;
+        if (tieneNavegador)
+            incrementoImpuesto += 0.02;
         setImpuestoCirculacion(getImpuestoCirculacion() * incrementoImpuesto);
 
         if (getCilindraje() > 2499) {

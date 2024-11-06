@@ -5,7 +5,7 @@ package ejerciciosjavaanexo1.PrincipiosPOO.ExercisePPOOGaraje;
  * @author Cresposoff
  */
 
- public class Moto extends Vehiculo {
+public class Moto extends Vehiculo {
     private boolean tieneSidecar;
 
     public Moto(String marca, double precio, int cilindraje, boolean tieneSidecar) {

@@ -59,6 +59,7 @@ public class Vehiculo {
             this.impuestoCirculacion = impuestoCirculacion;
         }
     }
+
     public double getImpuestoCirculacion() {
         return impuestoCirculacion;
     }
