@@ -6,87 +6,70 @@ package ejerciciosjavaanexo1.PrincipiosPOO.ExercisePPOOGaraje;
  */
 
 public class Vehiculo {
-    private String placa = null;
+    private String placa;
     private String marca;
-    protected double precio;
-    protected int cilindraje;
-    protected double impuestoCirculacion;
-    public static double cuotaMesGarage = 100;
-    
+    private double precio;
+    private int cilindraje;
+    private double impuestoCirculacion;
+    private double cuotaMesGaraje;
+
+    public static final double CUOTA_MES_DEFAULT = 100.0;
+
     public Vehiculo(String marca, double precio, int cilindraje) {
+        this.placa = null; // Valor inicial de placa es null
         this.marca = marca;
         this.precio = precio;
         this.cilindraje = cilindraje;
+        this.cuotaMesGaraje = CUOTA_MES_DEFAULT;
+        calcularImpuestoCirculacion();
     }
+
+    public void calcularImpuestoCirculacion() {
+        this.impuestoCirculacion = this.precio * 0.02;
+    }
+
+    public boolean matricular(String placa) {
+        if (placa != null && placa.length() == 6) {
+            this.placa = placa;
+            return true;
+        }
+        return false;
+    }
+
+    // Getters y Setters
 
     public String getPlaca() {
         return placa;
-    }
-
-    public void setPlaca(String placa) {
-        this.placa = placa;
     }
 
     public String getMarca() {
         return marca;
     }
 
-    public void setMarca(String marca) {
-        this.marca = marca;
-    }
-
     public double getPrecio() {
         return precio;
-    }
-
-    public void setPrecio(double precio) {
-        this.precio = precio;
     }
 
     public int getCilindraje() {
         return cilindraje;
     }
 
-    public void setCilindraje(int cilindraje) {
-        this.cilindraje = cilindraje;
+    public void setImpuestoCirculacion(double impuestoCirculacion) {
+        if (impuestoCirculacion >= 0) {
+            this.impuestoCirculacion = impuestoCirculacion;
+        }
     }
-
     public double getImpuestoCirculacion() {
         return impuestoCirculacion;
     }
 
-    public void setImpuestoCirculacion(double impuestoCirculacion) {
-        this.impuestoCirculacion = impuestoCirculacion;
+    public double getCuotaMesGaraje() {
+        return cuotaMesGaraje;
     }
 
-    public double getCuotaMesGarage() {
-        return cuotaMesGarage;
-    }
-
-    // Setter de cuotaMesGarage, con verificación para evitar valores negativos
-    public void setCuotaMesGarage(double cuotaMesGarage) {
-        // No se permiten cuotas negativas
-        if (cuotaMesGarage < 0) {
-            System.out.println("Cuota negativa no permitida");
-            Vehiculo.cuotaMesGarage = 0;
-        } else {
-            Vehiculo.cuotaMesGarage = cuotaMesGarage;
+    public void setCuotaMesGaraje(double cuotaMesGaraje) {
+        if (cuotaMesGaraje >= 0) {
+            this.cuotaMesGaraje = cuotaMesGaraje;
         }
     }
-
-    public void calcularImpuestoCirculacion() {
-        // calcular impuesto de circulacion que es el 2% importe del coche
-        impuestoCirculacion = precio * 0.02;
-    }
-
-    public boolean matricular() {
-        //Siempre que la placa tenga 6 caracteres, se considera que es una matriculada
-        if (placa.length() == 6) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    
 }
