@@ -1,9 +1,10 @@
+/**
 package ejerciciosjavaanexo1.PrincipiosPOO.ExercisePPOOGaraje;
 
-/**
+
  * 
  * @author Cresposoff
- */
+
 
 public class Camion extends Vehiculo {
     private int numeroEjes;
@@ -53,3 +54,4 @@ public class Camion extends Vehiculo {
     }
     
 }
+     */
