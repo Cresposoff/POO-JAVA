@@ -25,12 +25,13 @@ public abstract class Vehiculo {
     }
 
     public boolean matricular(String matricula) {
-        if (matricula.length() == 6) {
+        if (matricula != null && matricula.length() == 6) {
             this.placa = matricula;
             return true;
         }
         return false;
     }
+
 
     public abstract void calcularImpuestoCirculacion();
 

@@ -18,8 +18,9 @@ public class Main {
             System.out.println("3. Ingresar vehículo a un garaje");
             System.out.println("4. Retirar vehículo de un garaje");
             System.out.println("5. Generar informe de ocupación");
-            System.out.println("6. Generar informe de recaudo mensual");
-            System.out.println("7. Salir");
+            System.out.println("6. Consultar desglose de ocupación en un garaje");
+            System.out.println("7. Generar informe de recaudo mensual");
+            System.out.println("8. Salir");
             System.out.print("Seleccione una opción: ");
             opcion = sc.nextInt();
 
@@ -29,11 +30,12 @@ public class Main {
                 case 3 -> ingresarVehiculo(redDeGarajes, sc);
                 case 4 -> retirarVehiculo(redDeGarajes, sc);
                 case 5 -> generarInformeOcupacion(redDeGarajes, sc);
-                case 6 -> generarInformeRecaudo(redDeGarajes);
-                case 7 -> System.out.println("¡Gracias por usar el sistema de gestión de garajes!");
+                case 6 -> consultarDesgloseOcupacion(redDeGarajes, sc);
+                case 7 -> generarInformeRecaudo(redDeGarajes);
+                case 8 -> System.out.println("¡Gracias por usar el sistema de gestión de garajes!");
                 default -> System.out.println("Opción no válida. Intente de nuevo.");
             }
-        } while (opcion != 7);
+        } while (opcion != 8);
 
         sc.close();
     }
@@ -135,6 +137,12 @@ public class Main {
             }
         }
 
+        // Intentar matricular el vehículo
+        if (!vehiculo.matricular(matricula)) {
+            System.out.println("Matrícula inválida. El vehículo no se registrará.");
+            return;
+        }
+
         try {
             red.ingresarVehiculoAGaraje(direccion, vehiculo);
             System.out.println("Vehículo ingresado exitosamente.");
@@ -142,6 +150,7 @@ public class Main {
             System.out.println(e.getMessage());
         }
     }
+
 
     private static void retirarVehiculo(RedDeGarajes red, Scanner sc) {
         sc.nextLine(); // Limpiar buffer
@@ -171,6 +180,29 @@ public class Main {
                     garaje.getOcupacionActual(), garaje.getMaxEspacios());
         }
     }
+
+    private static void consultarDesgloseOcupacion(RedDeGarajes red, Scanner sc) {
+        sc.nextLine();
+        System.out.print("Ingrese la dirección del garaje: ");
+        String direccion = sc.nextLine();
+
+        try {
+            Garage garaje = red.buscarGaraje(direccion);
+            if (garaje == null) {
+                throw new GarajeNoEncontradoException("Garaje no encontrado.");
+            }
+
+            String desglose = garaje.generarDesgloseOcupacion();
+            if (desglose.isEmpty()) {
+                System.out.println("El garaje está vacío.");
+            } else {
+                System.out.println("Desglose de ocupación: " + desglose);
+            }
+        } catch (GarajeNoEncontradoException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
 
     private static void generarInformeRecaudo(RedDeGarajes red) {
         System.out.println("*** Informe de Recaudo Mensual ***");

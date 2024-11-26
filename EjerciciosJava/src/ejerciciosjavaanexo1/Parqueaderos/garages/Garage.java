@@ -31,17 +31,21 @@ public class Garage {
             throw new EspaciosInsuficientesException("No hay espacios disponibles en este garaje.");
         }
 
-        long camiones = espacios.stream().filter(v -> v instanceof vehicles.Camion).count();
-        long motos = espacios.stream().filter(v -> v instanceof vehicles.Moto).count();
+        if (vehiculo.getPlaca() == null) {
+            System.out.println("El vehículo no tiene matrícula asignada.");
+        }
 
-        if (vehiculo instanceof vehicles.Camion) {
+        long camiones = espacios.stream().filter(v -> v instanceof ejerciciosjavaanexo1.Parqueaderos.vehicles.Camion).count(); // el instanceof sirve para comparar el tipo de vehiculo con la clase Moto o Camion (clase abstracta)
+        long motos = espacios.stream().filter(v -> v instanceof ejerciciosjavaanexo1.Parqueaderos.vehicles.Moto).count();
+
+        if (vehiculo instanceof ejerciciosjavaanexo1.Parqueaderos.vehicles.Camion) {
             int maxCamiones = (maxEspacios < 100) ? 10 : 20;
             if (camiones >= maxCamiones) {
                 throw new MaximoCamionesException("Se ha alcanzado el máximo permitido de camiones en este garaje.");
             }
         }
 
-        if (vehiculo instanceof vehicles.Moto) {
+        if (vehiculo instanceof ejerciciosjavaanexo1.Parqueaderos.vehicles.Moto) {
             int maxMotos = (int) (maxEspacios * 0.2);
             if (motos >= maxMotos) {
                 throw new MaximoMotosException("Se ha alcanzado el máximo permitido de motos en este garaje.");
@@ -58,6 +62,40 @@ public class Garage {
         }
         espacios.remove(vehiculo);
     }
+
+    public String generarDesgloseOcupacion() {
+        int motos = 0, autos = 0, camiones = 0, camionetas = 0;
+
+        for (Vehiculo v : espacios) {
+            if (v instanceof Moto) {
+                motos++;
+            } else if (v instanceof Auto) {
+                autos++;
+            } else if (v instanceof Camion) {
+                camiones++;
+            } else if (v instanceof Camioneta) {
+                camionetas++;
+            }
+        }
+
+        StringBuilder desglose = new StringBuilder();
+        if (motos > 0) desglose.append("Moto: ").append(motos);
+        if (autos > 0) {
+            if (desglose.length() > 0) desglose.append(", ");
+            desglose.append("Auto: ").append(autos);
+        }
+        if (camiones > 0) {
+            if (desglose.length() > 0) desglose.append(", ");
+            desglose.append("Camion: ").append(camiones);
+        }
+        if (camionetas > 0) {
+            if (desglose.length() > 0) desglose.append(", ");
+            desglose.append("Camioneta: ").append(camionetas);
+        }
+
+        return desglose.toString();
+    }
+
 
     public Vehiculo buscarVehiculo(String matricula) {
         return espacios.stream().filter(v -> v.getPlaca().equals(matricula)).findFirst().orElse(null);
@@ -86,4 +124,6 @@ public class Garage {
     public String getDepartamento() {
         return departamento;
     }
+
+
 }

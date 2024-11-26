@@ -30,7 +30,7 @@ public class RedDeGarajes {
     public void ingresarVehiculoAGaraje(String direccion, Vehiculo vehiculo) throws VehiculoYaRegistradoException, GarajeNoEncontradoException {
         for (Garage garaje : garajes) {
             if (garaje.buscarVehiculo(vehiculo.getPlaca()) != null) {
-                throw new VehiculoYaRegistradoException("El vehículo ya está registrado en otro garaje.");
+                throw new VehiculoYaRegistradoException("El vehículo ya está registrado en este u otro garaje.");
             }
         }
 
@@ -42,7 +42,7 @@ public class RedDeGarajes {
         try {
             garaje.ingresarVehiculo(vehiculo);
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            throw new RuntimeException("Error al intentar ingresar el vehículo: " + e.getMessage());
         }
     }
 
