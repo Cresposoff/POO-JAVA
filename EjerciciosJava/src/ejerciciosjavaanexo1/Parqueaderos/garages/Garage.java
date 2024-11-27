@@ -35,17 +35,17 @@ public class Garage {
             System.out.println("El vehículo no tiene matrícula asignada.");
         }
 
-        long camiones = espacios.stream().filter(v -> v instanceof ejerciciosjavaanexo1.Parqueaderos.vehicles.Camion).count(); // el instanceof sirve para comparar el tipo de vehiculo con la clase Moto o Camion (clase abstracta)
-        long motos = espacios.stream().filter(v -> v instanceof ejerciciosjavaanexo1.Parqueaderos.vehicles.Moto).count();
+        long camiones = espacios.stream().filter(v -> v instanceof Camion).count();
+        long motos = espacios.stream().filter(v -> v instanceof Moto).count();
 
-        if (vehiculo instanceof ejerciciosjavaanexo1.Parqueaderos.vehicles.Camion) {
+        if (vehiculo instanceof Camion) {
             int maxCamiones = (maxEspacios < 100) ? 10 : 20;
             if (camiones >= maxCamiones) {
                 throw new MaximoCamionesException("Se ha alcanzado el máximo permitido de camiones en este garaje.");
             }
         }
 
-        if (vehiculo instanceof ejerciciosjavaanexo1.Parqueaderos.vehicles.Moto) {
+        if (vehiculo instanceof Moto) {
             int maxMotos = (int) (maxEspacios * 0.2);
             if (motos >= maxMotos) {
                 throw new MaximoMotosException("Se ha alcanzado el máximo permitido de motos en este garaje.");
@@ -96,6 +96,16 @@ public class Garage {
         return desglose.toString();
     }
 
+    public void mostrarInformacionGaraje() {
+        System.out.println("=== Información del Garaje ===");
+        System.out.println("Ubicación: " + this.getDepartamento() + ", " + this.getCiudad());
+        System.out.println("Dirección: " + this.getDireccion());
+        System.out.println("Teléfono: " + this.telefono);
+        System.out.println("Email: " + this.email);
+        System.out.println("Administrador: " + this.nombreAdministrador);
+        System.out.println("Capacidad de Espacios: " + this.maxEspacios);
+        System.out.println("Ocupación actual: " + this.getOcupacionActual() + " vehículos.");
+    }
 
     public Vehiculo buscarVehiculo(String matricula) {
         return espacios.stream().filter(v -> v.getPlaca().equals(matricula)).findFirst().orElse(null);
@@ -124,6 +134,4 @@ public class Garage {
     public String getDepartamento() {
         return departamento;
     }
-
-
 }
