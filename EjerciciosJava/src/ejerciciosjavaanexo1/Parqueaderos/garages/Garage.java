@@ -26,7 +26,7 @@ public class Garage {
         this.espacios = new ArrayList<>();
     }
 
-    public void ingresarVehiculo(Vehiculo vehiculo) throws MaximoCamionesException, MaximoMotosException, EspaciosInsuficientesException {
+    public void ingresarVehiculo(Vehiculo vehiculo) throws MaximoCamionesException, MaximoMotosException, EspaciosInsuficientesException, VehiculoYaRegistradoException {
         if (espacios.size() >= maxEspacios) {
             throw new EspaciosInsuficientesException("No hay espacios disponibles en este garaje.");
         }
