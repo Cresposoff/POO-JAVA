@@ -1,4 +1,4 @@
-package ejerciciosjavaanexo1.bifuracionesifswitch.basicos;
+package ejerciciosjavaanexo1.bifuraciones.basicos;
 
 import java.util.Scanner;
 

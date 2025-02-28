@@ -1,6 +1,5 @@
-package ejerciciosjavaanexo1.bifuracionesifswitch.basicos;
+package ejerciciosjavaanexo1.bifuraciones.basicos;
 
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class Ejercicio4 {
